@@ -20,7 +20,7 @@ services:
     container_name: db
   app:
     build:
-      context: .
+      context: ./TestServer
       dockerfile: Dockerfile
     depends_on:
       db:
@@ -36,8 +36,8 @@ services:
     hostname: nginx
     image: nginx:latest
     volumes:
-      - /home/lilrain/Desktop/lab1_docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-      - /home/lilrain/Desktop/lab1_docker/TestClient/dist:/etc/dist
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./TestClient/dist:/etc/dist
     ports:
       - "80:80"
       - "443:443"
